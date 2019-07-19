@@ -5,7 +5,6 @@ const GlobalStyle = createGlobalStyle`
   ${styledSanitize}
   body {
     margin: 0;
-    color: white;
     color: ${({ theme }) => theme.colors.onBackground}
   }
 `;
