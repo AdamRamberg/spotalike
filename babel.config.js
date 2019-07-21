@@ -11,6 +11,7 @@ module.exports = api => {
           preprocess: false,
         },
       ],
+      'inline-react-svg',
     ],
   };
 };

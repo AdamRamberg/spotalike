@@ -1,25 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from '../components/Logo';
+import Hero from '../components/Hero';
 
-const Background = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-image: ${({ theme }) =>
-    `linear-gradient(to bottom, ${theme.colors.primary}, ${theme.colors.secondary})`};
+const LogoWrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-flow: column;
 `;
 
-const Span = styled.span`
-  color: ${({ theme }) => theme.colors.onPrimary};
-  font-size: ${({ theme }) => theme.fontSize.default};
+const Container = styled.div`
+  background-color: white;
+  padding: 2rem;
+  min-height: calc(100vh - 188px);
 `;
 
 const Home = () => (
-  <Background>
-    <Span>Spotalike</Span>
-  </Background>
+  <>
+    <Hero>
+      <LogoWrapper>
+        <Logo />
+      </LogoWrapper>
+    </Hero>
+    <Container>
+      <p>
+        Give us your favourite track and we’ll serve up a sweet Spotify playlist
+        with similar songs that you’ll love!
+      </p>
+    </Container>
+  </>
 );
 
 export default Home;
