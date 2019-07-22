@@ -1,5 +1,5 @@
 import { white, black, blue, pinkSalmon } from './colors';
-import { fontSizeMajorSecond } from './fontSize';
+import { createSizings, MAJOR_SECOND } from './sizing';
 
 export default {
   // Based on Material Design:
@@ -15,5 +15,10 @@ export default {
     secondaryBackground: white,
     onSecondaryBackground: black,
   },
-  fontSize: fontSizeMajorSecond({ basePixelFontSize: 18 }),
+  ...createSizings({
+    pixelBaseline: 10,
+    apparentPixelFontSize: 16,
+    fontScale: MAJOR_SECOND,
+    spacingBaseline: 8,
+  }),
 };

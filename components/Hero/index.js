@@ -1,12 +1,13 @@
 import React from 'react';
 import { node } from 'prop-types';
 import styled from 'styled-components';
-import Icon from '../Icon';
+import TopRow, { PropTypesShape as TopRowPropsShape } from './topRow';
 
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 188px;
+  height: 18.8rem;
+  overflow: hidden;
 `;
 
 const Gradient = styled.div`
@@ -20,35 +21,17 @@ const Gradient = styled.div`
     `linear-gradient(to bottom, ${theme.colors.primary}, ${theme.colors.secondary})`};
 `;
 
-const TopRow = styled.div`
-  padding: 28px 24px 0 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 32px;
-`;
-
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.onPrimary};
-  font-size: ${({ theme }) => theme.fontSize.default};
-  margin: 0;
-`;
-
-const Hero = ({ children }) => (
+const Hero = ({ children, topRowProps }) => (
   <Wrapper>
     <Gradient />
-    <TopRow>
-      <Icon />
-      <Title>Title</Title>
-      <Icon />
-    </TopRow>
+    <TopRow {...topRowProps} />
     {children}
   </Wrapper>
 );
 
 Hero.propTypes = {
   children: node,
+  topRowProps: TopRowPropsShape,
 };
 
 export default Hero;

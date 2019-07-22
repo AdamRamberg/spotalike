@@ -12,12 +12,12 @@ const LogoWrapper = styled.div`
 const Container = styled.div`
   background-color: white;
   padding: 2rem;
-  min-height: calc(100vh - 188px);
+  min-height: calc(100vh - 18.8rem);
 `;
 
 const Home = () => (
   <>
-    <Hero>
+    <Hero topRowProps={{ rightIconProps: { iconKey: 'info' } }}>
       <LogoWrapper>
         <Logo />
       </LogoWrapper>
