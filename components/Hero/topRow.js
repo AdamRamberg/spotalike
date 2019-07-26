@@ -4,17 +4,19 @@ import styled from 'styled-components';
 import Icon, { PropTypesShape as IconPropTypesShape } from '../Icon';
 
 const Wrapper = styled.div`
-  margin: 2.8rem 2.4rem 0 2.4rem;
+  margin: ${({ theme }) =>
+    `${theme.spacing(3.5)} ${theme.spacing(3)} 0 ${theme.spacing(3)}`};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 3.2rem;
+  height: ${({ theme }) => theme.spacing(4)};
 `;
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.colors.onPrimary};
-  font-size: ${({ theme }) => theme.fontSize.default};
+  ${({ theme }) =>
+    theme.typeScale({ size: 'large', lineHeight: 1.6, weight: 'bold' })};
   margin: 0;
 `;
 

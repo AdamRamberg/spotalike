@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import theme from '../style/theme';
+import GlobalOutlineStyle from '../style/globalOutlineStyle';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -21,6 +22,7 @@ class MyApp extends App {
       <Container>
         <ThemeProvider theme={theme}>
           <>
+            <GlobalOutlineStyle />
             <Component {...pageProps} />
           </>
         </ThemeProvider>

@@ -1,11 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import SvgLogo from './logo.svg';
 
-const H1 = styled.h1`
-  color: ${({ theme }) => theme.colors.onPrimary};
-  font-size: 3.2rem;
-`;
-
-const Logo = () => <H1>Spotalike</H1>;
+const Logo = () => <SvgLogo />;
 
 export default Logo;

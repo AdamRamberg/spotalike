@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { oneOf, shape, string, node, oneOfType } from 'prop-types';
+import { oneOf, shape, string, node, oneOfType, func } from 'prop-types';
 import iconsMap from './iconsMap';
 
 const Wrapper = styled.div`
-  height: 2.4rem;
-  width: 2.4rem;
+  height: ${({ theme }) => theme.spacing(3)};
+  width: ${({ theme }) => theme.spacing(3)};
   color: ${({ theme }) => theme.colors.onPrimary};
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
 `;
 
 const Icon = ({ iconKey, as, ...rest }) => {
@@ -20,7 +24,7 @@ const Icon = ({ iconKey, as, ...rest }) => {
 
 const PropTypes = {
   iconKey: oneOf(Object.keys(iconsMap)),
-  as: oneOfType([string, node]),
+  as: oneOfType([string, node, func]),
 };
 
 Icon.propTypes = PropTypes;

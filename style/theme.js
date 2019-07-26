@@ -1,4 +1,4 @@
-import { white, black, blue, pinkSalmon } from './colors';
+import { white, black, blue, pinkSalmon, cornflowerBlue, tuna } from './colors';
 import { createSizings, MAJOR_SECOND } from './sizing';
 
 export default {
@@ -11,7 +11,8 @@ export default {
     secondary: pinkSalmon,
     onSecondary: white,
     background: white,
-    onBackground: black,
+    onBackground: tuna,
+    onBackgroundSecondary: cornflowerBlue,
     secondaryBackground: white,
     onSecondaryBackground: black,
   },
