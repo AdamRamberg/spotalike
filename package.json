@@ -16,6 +16,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-spring": "^8.0.27",
     "styled-components": "^4.3.2",
     "styled-sanitize": "^1.1.2"
   },

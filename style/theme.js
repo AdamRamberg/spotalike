@@ -1,5 +1,14 @@
 import { white, black, blue, pinkSalmon, cornflowerBlue, tuna } from './colors';
 import { createSizings, MAJOR_SECOND } from './sizing';
+import createBreakpointMixins from './breakpoints';
+
+export const breakpoints = createBreakpointMixins({
+  xs: '20em', // 320px
+  s: '36em', // 576px
+  m: '48em', // 768px
+  l: '62em', // 992px
+  xl: '75em', // 1200px
+});
 
 export default {
   // Based on Material Design:
@@ -22,4 +31,5 @@ export default {
     fontScale: MAJOR_SECOND,
     spacingBaseline: 8,
   }),
+  breakpoints,
 };

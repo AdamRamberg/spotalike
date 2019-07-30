@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../components/Logo';
 import Hero from '../components/Hero';
+import Icon from '../components/Icon';
 
 const HERO_HEIGHT = '18.8rem';
 
@@ -21,7 +22,7 @@ const Home = () => (
   <>
     <Hero
       topRowProps={{
-        rightIconProps: { iconKey: 'info', as: 'a', href: '/about' },
+        rightComponent: <Icon iconKey="info" as="a" href="/about" />,
       }}
       height={HERO_HEIGHT}
     >

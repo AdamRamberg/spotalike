@@ -1,11 +1,12 @@
 import React from 'react';
-import { string, shape } from 'prop-types';
+import { string, shape, node, oneOfType, func } from 'prop-types';
 import styled from 'styled-components';
-import Icon, { PropTypesShape as IconPropTypesShape } from '../Icon';
 
 const Wrapper = styled.div`
   margin: ${({ theme }) =>
-    `${theme.spacing(3.5)} ${theme.spacing(3)} 0 ${theme.spacing(3)}`};
+    `${theme.spacing(3.5)} ${theme.spacing(3)} ${theme.spacing(
+      1,
+    )} ${theme.spacing(3)}`};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,28 +21,32 @@ const Title = styled.h1`
   margin: 0;
 `;
 
-const TopRow = ({ leftIconProps, title, rightIconProps }) => (
+const TopRow = ({
+  leftComponent: LeftComponent,
+  title,
+  rightComponent: RightComponent,
+}) => (
   <Wrapper>
-    <Icon {...leftIconProps} />
+    {typeof LeftComponent === 'function' ? <LeftComponent /> : LeftComponent}
     <Title>{title}</Title>
-    <Icon {...rightIconProps} />
+    {typeof RightComponent === 'function' ? <RightComponent /> : RightComponent}
   </Wrapper>
 );
 
 const PropTypes = {
-  leftIconProps: IconPropTypesShape,
+  leftComponent: oneOfType([node, func]),
   title: string,
-  rightIconProps: IconPropTypesShape,
+  rightComponent: oneOfType([node, func]),
 };
 
 TopRow.propTypes = PropTypes;
 
+const EmptyDiv = <div />;
 TopRow.defaultProps = {
-  leftIconProps: {},
+  leftComponent: EmptyDiv,
   title: '',
-  rightIconProps: {},
+  rightComponent: EmptyDiv,
 };
 
 export const PropTypesShape = shape(PropTypes);
-
 export default TopRow;
