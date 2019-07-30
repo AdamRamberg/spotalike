@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import Hero from '../components/Hero';
 import Icon from '../components/Icon';
-import { Paragraph } from '../components/Typography';
+import { Paragraph, Heading } from '../components/Typography';
 import Tooltip from '../compositions/ShareAndRateTooltip';
 
 const HeroParagraphWrapper = styled.div`
@@ -25,11 +25,6 @@ const HeroParagraph = styled.p`
 const TextWrapper = styled.div`
   margin: ${({ theme }) => theme.spacing(3)} ${({ theme }) => theme.spacing(4)}
     ${({ theme }) => theme.spacing(4)} ${({ theme }) => theme.spacing(4)};
-`;
-
-const Heading = styled.h2`
-  color: ${({ theme }) => theme.colors.onBackgroundSecondary};
-  ${({ theme }) => theme.typeScale({ size: 'large', lineHeight: 1.6 })};
 `;
 
 const About = () => {
