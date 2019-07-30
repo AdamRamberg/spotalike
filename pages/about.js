@@ -43,7 +43,7 @@ const About = () => {
     [iconElement],
   );
 
-  const [isTooltipOpen, setIsTooltipOpen] = useState(true);
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   return (
     <>
