@@ -1,39 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import List, { ListItem } from '../../components/List';
 
-const List = styled.ul`
-  ${({ theme }) => `width: calc(100% - ${theme.spacing(6)})`};
-  ${({ theme }) => theme.marginX(3)};
-  ${({ theme }) => theme.marginY(0.5)};
-  padding: 0;
-  list-style-type: none;
-`;
-
-const ListItem = styled.li`
-  &:not(:last-child) {
-    border-bottom: 1px solid #dddddd;
-  }
-`;
-
-const Button = styled.button`
-  display: flex;
-  ${({ theme }) => theme.paddingY(3)};
-  width: 100%;
-`;
+// eslint-disable-next-line no-console
+const notImplementedHandler = () => console.log('Button not implemented');
 
 const Content = () => (
   <List>
-    <ListItem>
-      <Button>
-        <span>TOOLTIP CONTENT</span>
-      </Button>
-    </ListItem>
-    <ListItem>
-      <Button>TOOLTIP CONTENT</Button>
-    </ListItem>
-    <ListItem>
-      <Button>TOOLTIP CONTENT</Button>
-    </ListItem>
+    <ListItem
+      title="Share with your friends"
+      iconKey="share"
+      onClick={notImplementedHandler}
+    />
+    <ListItem
+      title="Rate this app"
+      iconKey="rate"
+      onClick={notImplementedHandler}
+    />
   </List>
 );
 

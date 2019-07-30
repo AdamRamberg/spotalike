@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   background: none;
+  color: inherit;
 `;
 
 const Icon = forwardRef((props, ref) => {
@@ -23,7 +24,7 @@ const Icon = forwardRef((props, ref) => {
   );
 });
 
-const PropTypes = {
+export const PropTypes = {
   iconKey: oneOf(Object.keys(iconsMap)),
   as: oneOfType([string, node, func]),
 };

@@ -17,7 +17,10 @@ const GlobalStyle = createGlobalStyle`
     margin: ${({ theme }) => theme.spacing(1.5)} 0;
   }
   button {
+    border: none;
+    background: none;
     cursor: pointer;
+    padding: 0;
   }
 `;
 

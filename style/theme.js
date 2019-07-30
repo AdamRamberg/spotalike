@@ -1,4 +1,14 @@
-import { white, black, blue, pinkSalmon, cornflowerBlue, tuna } from './colors';
+import {
+  white,
+  black,
+  blue,
+  pinkSalmon,
+  cornflowerBlue,
+  tuna,
+  mischka,
+  silverChalice,
+  spunPearl,
+} from './colors';
 import { createSizings, MAJOR_SECOND } from './sizing';
 import createBreakpointMixins from './breakpoints';
 
@@ -21,6 +31,9 @@ export default {
     onSecondary: white,
     background: white,
     onBackground: tuna,
+    onBackgroundLighter: silverChalice,
+    onBackgroundLighterVariation: spunPearl,
+    onBackgroundLightest: mischka,
     onBackgroundSecondary: cornflowerBlue,
     secondaryBackground: white,
     onSecondaryBackground: black,

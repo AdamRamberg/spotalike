@@ -12,10 +12,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: ${({ theme }) => theme.spacing(4)};
+  color: ${({ theme }) => theme.colors.onPrimary};
 `;
 
 const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.onPrimary};
   ${({ theme }) =>
     theme.typeScale({ size: 'large', lineHeight: 1.6, weight: 'bold' })};
   margin: 0;
