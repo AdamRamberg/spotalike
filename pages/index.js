@@ -1,6 +1,7 @@
 import React from 'react';
 import { array } from 'prop-types';
 import styled from 'styled-components';
+import Link from 'next/link';
 import Logo from '../components/Logo';
 import Hero from '../components/Hero';
 import Icon from '../components/Icon';
@@ -32,6 +33,11 @@ const SmallHeading = styled(Heading)`
   ${({ theme }) => theme.marginX(3)};
 `;
 
+const StyledAnchor = styled.a`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.onBackground};
+`;
+
 const Home = ({ popularSongs }) => (
   <>
     <Hero
@@ -53,14 +59,25 @@ const Home = ({ popularSongs }) => (
     <SmallHeading>Popular tracks</SmallHeading>
     <List>
       {popularSongs.length ? (
-        popularSongs.map(({ id, name, artist }) => (
-          <ListItem
-            key={id}
-            title={name}
-            subtitle={artist}
-            iconKey="arrow-right"
-          />
-        ))
+        popularSongs.map(({ id, name, artist }) => {
+          // eslint-disable-next-line react/prop-types
+          const CurriedLink = ({ children, ...rest }) => (
+            <Link href="/playlist/[songId]" as={`/playlist/${id}`}>
+              <StyledAnchor href={`/playlist/${id}`} {...rest}>
+                {children}
+              </StyledAnchor>
+            </Link>
+          );
+          return (
+            <ListItem
+              key={id}
+              title={name}
+              subtitle={artist}
+              iconKey="arrow-right"
+              component={<CurriedLink />}
+            />
+          );
+        })
       ) : (
         <CenteredParagraph>
           Sorry, could not load most popular songs...

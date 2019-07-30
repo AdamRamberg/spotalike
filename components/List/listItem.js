@@ -1,5 +1,5 @@
 import React from 'react';
-import { oneOf, string, node, oneOfType, func } from 'prop-types';
+import { oneOf, string, node } from 'prop-types';
 import styled from 'styled-components';
 import Icon, { iconsMap } from '../Icon';
 
@@ -11,7 +11,9 @@ const Li = styled.li`
   }
 `;
 
-const Interactable = styled.button`
+const Interactable = styled(({ component, ...props }) =>
+  React.cloneElement(component, props),
+)`
   display: flex;
   flex-wrap: no-wrap;
   flex-direction: row;
@@ -46,16 +48,18 @@ const Subtitle = styled.span`
   ${({ theme }) => theme.typeScale({ size: 'xs', lineHeight: 1.33 })};
 `;
 
-const ListItem = ({ title, subtitle, iconKey, as, ...rest }) => (
+const ListItem = ({ title, component, subtitle, iconKey, as, ...rest }) => (
   <Li>
-    <Interactable as={as} {...rest}>
-      <TextContainer>
-        <Title>{title}</Title>
-        {subtitle && <Subtitle>{subtitle}</Subtitle>}
-      </TextContainer>
-      <IconWrapper>
-        <Icon iconKey={iconKey} />
-      </IconWrapper>
+    <Interactable component={component} as={as} {...rest}>
+      <>
+        <TextContainer>
+          <Title>{title}</Title>
+          {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        </TextContainer>
+        <IconWrapper>
+          <Icon iconKey={iconKey} />
+        </IconWrapper>
+      </>
     </Interactable>
   </Li>
 );
@@ -64,7 +68,12 @@ ListItem.propTypes = {
   title: string.isRequired,
   subtitle: string,
   iconKey: oneOf(Object.keys(iconsMap)).isRequired,
-  as: oneOfType([string, node, func]),
+  as: string,
+  component: node,
+};
+
+ListItem.defaultProps = {
+  component: <button type="button" />,
 };
 
 export default ListItem;
