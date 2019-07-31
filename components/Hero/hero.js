@@ -16,14 +16,14 @@ const Gradient = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  height: calc(190%);
+  height: ${({ gradientHeight }) => gradientHeight};
   background-image: ${({ theme }) =>
     `linear-gradient(to bottom, ${theme.colors.primary}, ${theme.colors.secondary})`};
 `;
 
-const Hero = ({ children, topRowProps, height }) => (
+const Hero = ({ children, topRowProps, height, gradientHeight }) => (
   <Wrapper height={height}>
-    <Gradient />
+    <Gradient gradientHeight={gradientHeight} />
     <TopRow {...topRowProps} />
     {children}
   </Wrapper>
@@ -33,6 +33,11 @@ Hero.propTypes = {
   children: node,
   topRowProps: TopRowPropsShape,
   height: string,
+  gradientHeight: string,
+};
+
+Hero.defaultProps = {
+  gradientHeight: '190%',
 };
 
 export default Hero;

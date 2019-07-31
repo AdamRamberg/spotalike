@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { array, object } from 'prop-types';
 import Hero from '../../components/Hero';
 import Icon from '../../components/Icon';
+import LabeledIcon from '../../components/Icon/labeledIcon';
 import { CenteredParagraph, SmallHeading } from '../../components/Typography';
 import List, { ListItem } from '../../components/List';
 import Tooltip from '../../compositions/ShareAndRateTooltip';
@@ -14,6 +15,25 @@ const notImplementedHandler = () => console.log('Button not implemented');
 const ListWrapper = styled.div`
   ${({ theme }) => theme.marginY(3)};
 `;
+
+const SongDetailsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  ${({ theme }) => theme.marginY(2)};
+`;
+
+const secondsToTime = seconds =>
+  [
+    { value: Math.floor(seconds / (3600 * 24)), suffix: 'days' },
+    { value: Math.floor((seconds % (3600 * 24)) / 3600), suffix: 'h' },
+    { value: Math.floor((seconds % 3600) / 60), suffix: 'min' },
+    { value: Math.floor(seconds % 60), suffix: 'sec' },
+  ]
+    .filter(item => item.value && item.value > 0)
+    .map(item => `${item.value} ${item.suffix}`)
+    .join(' ');
 
 const Playlist = ({ songs, basedOn }) => {
   const [moreIconElement, setMoreIconElement] = useState(null);
@@ -52,7 +72,19 @@ const Playlist = ({ songs, basedOn }) => {
             </>
           ),
         }}
-      ></Hero>
+        height="auto"
+        gradientHeight="40vh"
+      >
+        <SongDetailsWrapper>
+          <LabeledIcon iconKey="queue" label={`${songs.length} tracks`} />
+          <LabeledIcon
+            iconKey="duration"
+            label={secondsToTime(
+              songs.reduce((acc, cur) => acc + parseInt(cur.length, 10), 0),
+            )}
+          />
+        </SongDetailsWrapper>
+      </Hero>
       <ListWrapper>
         <SmallHeading>Tracks</SmallHeading>
         <List>
