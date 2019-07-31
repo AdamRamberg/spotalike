@@ -1,5 +1,6 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import originalTheme from '../style/theme';
 import GlobalOutlineStyle from '../style/globalOutlineStyle';
@@ -26,6 +27,15 @@ class MyApp extends App {
 
     return (
       <Container>
+        <Head>
+          {/* eslint-disable-next-line  jsx-a11y/accessible-emoji */}
+          <title>🎵 Spotalike</title>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          />
+        </Head>
         <ThemeProvider theme={theme}>
           <>
             <GlobalOutlineStyle />
