@@ -20,6 +20,10 @@ const SearchWrapper = styled.div`
   justify-content: center;
 `;
 
+const StyledSongList = styled(SongList)`
+  max-height: 30rem;
+`;
+
 const SearchSongs = () => {
   const [searchValue, setSearchValue] = useState('');
   const [matchingSongs, setMatchingSongs] = useState([]);
@@ -51,7 +55,7 @@ const SearchSongs = () => {
         }}
       >
         {searchValue && matchingSongs.length > 0 && (
-          <SongList songs={matchingSongs} />
+          <StyledSongList songs={matchingSongs} />
         )}
       </StyledTextInput>
     </SearchWrapper>
