@@ -8,11 +8,12 @@ export default (req, res) => {
       .sort((a, b) => b.numberOfPlays - a.numberOfPlays)
       .filter(song =>
         searchString
+          .toLowerCase()
           .split(' ')
           .some(
             searchWord =>
-              song.name.includes(searchWord) ||
-              song.artist.includes(searchWord),
+              song.name.toLowerCase().includes(searchWord) ||
+              song.artist.toLowerCase().includes(searchWord),
           ),
       )
       .slice(0, maxCount);

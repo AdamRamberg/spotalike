@@ -1,12 +1,12 @@
 import React from 'react';
 import { array } from 'prop-types';
 import styled from 'styled-components';
-import Link from 'next/link';
 import Logo from '../components/Logo';
 import Hero from '../components/Hero';
 import Icon from '../components/Icon';
 import { Heading, CenteredParagraph } from '../components/Typography';
-import List, { ListItem } from '../components/List';
+import SearchSongs from '../containers/SearchSongs';
+import SongList from '../compositions/SongList';
 import fetch from '../utils/fetchWithParams';
 
 const HERO_HEIGHT = '18.8rem';
@@ -17,7 +17,8 @@ const LogoWrapper = styled.div`
   flex-flow: column;
 `;
 
-const TextContainer = styled.div`
+const MiddleContainer = styled.div`
+  position: relative;
   background-color: white;
   margin: ${({ theme }) => theme.spacing(7)};
 `;
@@ -26,11 +27,6 @@ const SmallHeading = styled(Heading)`
   ${({ theme }) =>
     theme.typeScale({ size: 'xs', lineHeight: 1.33, weight: 'normal' })};
   ${({ theme }) => theme.marginX(3)};
-`;
-
-const StyledAnchor = styled.a`
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.onBackground};
 `;
 
 const Home = ({ popularSongs }) => (
@@ -45,40 +41,15 @@ const Home = ({ popularSongs }) => (
         <Logo />
       </LogoWrapper>
     </Hero>
-    <TextContainer>
+    <MiddleContainer>
+      <SearchSongs />
       <CenteredParagraph>
         Give us your favourite track and we’ll serve up a sweet Spotify playlist
         with similar songs that you’ll love!
       </CenteredParagraph>
-    </TextContainer>
+    </MiddleContainer>
     <SmallHeading>Popular tracks</SmallHeading>
-    <List>
-      {popularSongs.length ? (
-        popularSongs.map(({ id, name, artist }) => {
-          // eslint-disable-next-line react/prop-types
-          const CurriedLink = ({ children, ...rest }) => (
-            <Link href="/playlist/[songId]" as={`/playlist/${id}`}>
-              <StyledAnchor href={`/playlist/${id}`} {...rest}>
-                {children}
-              </StyledAnchor>
-            </Link>
-          );
-          return (
-            <ListItem
-              key={id}
-              title={name}
-              subtitle={artist}
-              iconKey="arrow-right"
-              component={<CurriedLink />}
-            />
-          );
-        })
-      ) : (
-        <CenteredParagraph>
-          Sorry, could not load most popular songs...
-        </CenteredParagraph>
-      )}
-    </List>
+    <SongList songs={popularSongs} />
   </>
 );
 

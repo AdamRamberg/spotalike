@@ -25,7 +25,7 @@ const StyledSvg = styled(({ iconKey, ...rest }) => {
 const Icon = forwardRef((props, ref) => {
   const { iconKey, as, ...rest } = props;
   return (
-    <Wrapper ref={ref} {...rest} as={as}>
+    <Wrapper ref={ref} as={as} {...rest}>
       <StyledSvg iconKey={iconKey} />
     </Wrapper>
   );

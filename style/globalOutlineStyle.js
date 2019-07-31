@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  button:focus, a:focus {
+  button:focus, a:focus, input:focus {
     ${({ showOutline }) =>
       showOutline
         ? 'outline: auto 5px -webkit-focus-ring-color;'
