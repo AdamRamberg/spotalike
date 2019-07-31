@@ -14,12 +14,19 @@ const Wrapper = styled.div`
   color: inherit;
 `;
 
+const StyledSvg = styled(({ iconKey, ...rest }) => {
+  const IconComponent = iconsMap[iconKey];
+  return IconComponent ? <IconComponent {...rest} /> : null;
+})`
+  height: 100%;
+  width: 100%;
+`;
+
 const Icon = forwardRef((props, ref) => {
   const { iconKey, as, ...rest } = props;
-  const SvgComponent = iconsMap[iconKey];
   return (
     <Wrapper ref={ref} {...rest} as={as}>
-      {SvgComponent && <SvgComponent />}
+      <StyledSvg iconKey={iconKey} />
     </Wrapper>
   );
 });

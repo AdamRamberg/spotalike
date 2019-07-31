@@ -13,7 +13,7 @@ const HeroParagraphWrapper = styled.div`
     ${({ theme }) => theme.spacing(5)} ${({ theme }) => theme.spacing(4)};
 `;
 
-const HeroParagraph = styled.p`
+const HeroParagraph = styled(Paragraph)`
   /* NOTE: Below is not 100% accurate according to the sketch. Adjusted it work with the type scale and the Montserrat font. */
   ${({ theme }) =>
     theme.typeScale({ size: 'xl', lineHeight: 1.33, weight: 300 })};

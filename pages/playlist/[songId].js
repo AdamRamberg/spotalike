@@ -7,6 +7,7 @@ import LabeledIcon from '../../components/Icon/labeledIcon';
 import { CenteredParagraph, SmallHeading } from '../../components/Typography';
 import List, { ListItem } from '../../components/List';
 import Tooltip from '../../compositions/ShareAndRateTooltip';
+import SpotifyStickyFooter from '../../compositions/SpotifyStickyFooter';
 import fetch from '../../utils/fetchWithParams';
 
 // eslint-disable-next-line no-console
@@ -105,6 +106,7 @@ const Playlist = ({ songs, basedOn }) => {
           )}
         </List>
       </ListWrapper>
+      <SpotifyStickyFooter onClick={notImplementedHandler} />
     </>
   );
 };
