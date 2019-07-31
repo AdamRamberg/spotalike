@@ -10,8 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', 'Arial', 'Sans Serif';
     margin: 0;
     color: ${({ theme }) => theme.colors.onBackground};
-    /* Prevent vertical scrolling */
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent vertical scrolling */
   }
   h1, h2, h3, h4, h5, h6, p, blockquote, ul, fieldset, form, ol, dl, dir {
     margin: ${({ theme }) => theme.spacing(1.5)} 0;

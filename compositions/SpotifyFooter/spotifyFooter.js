@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import StickyFooter from '../../components/StickyFooter';
 import LabeledIcon from '../../components/Icon/labeledIcon';
+
+const Footer = styled.footer`
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.background};
+  box-shadow: ${({ theme }) =>
+    `0 ${theme.spacing(0.5)} ${theme.spacing(2)} 0 rgba(55, 58, 168, 0.24)`};
+  overflow: hidden;
+`;
 
 const SpotifyButton = styled(LabeledIcon).attrs(() => ({
   forwardedAs: 'button',
@@ -15,10 +22,10 @@ const SpotifyButton = styled(LabeledIcon).attrs(() => ({
   justify-content: center;
 `;
 
-const SpotifyStickyFooter = props => (
-  <StickyFooter>
+const SpotifyFooter = props => (
+  <Footer>
     <SpotifyButton label="Enjoy with Spotify" {...props} />
-  </StickyFooter>
+  </Footer>
 );
 
-export default SpotifyStickyFooter;
+export default SpotifyFooter;
