@@ -113,7 +113,7 @@ const Playlist = ({ songs, basedOn }) => {
 };
 
 Playlist.getInitialProps = async ({ query }) => {
-  const songs = await fetch('http://localhost:3000/api/playlist', {
+  const songs = await fetch(`${API_URL}/playlist`, {
     songId: query.songId,
   });
   return { songs, basedOn: songs[0] };
