@@ -2,6 +2,8 @@
 
 A Next.js showcase app
 
+Live version: http://ec2-18-197-115-93.eu-central-1.compute.amazonaws.com:3000
+
 ## 👨‍💻 Tech Stack
 
 - [Next.js](https://nextjs.org/)
