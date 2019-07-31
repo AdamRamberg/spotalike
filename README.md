@@ -15,6 +15,7 @@ A Next.js showcase app
 - Translations using [FBT](https://facebookincubator.github.io/fbt/)
 - Favicon
 - More [react-spring](https://www.react-spring.io/) animations
+- [Error boundaries for showing loading](https://codeburst.io/using-promises-and-error-boundaries-for-data-loading-within-your-react-redux-app-219f8d3a6d26) state when fetching data on the client.
 
 ## 🏛️ Project Structure
 
