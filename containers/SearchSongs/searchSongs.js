@@ -21,7 +21,7 @@ const SearchWrapper = styled.div`
 `;
 
 const StyledSongList = styled(SongList)`
-  max-height: 30rem;
+  max-height: 36rem;
 `;
 
 const SearchSongs = () => {
