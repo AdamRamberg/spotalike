@@ -1,4 +1,4 @@
-<img style="padding: 1rem;background-image:linear-gradient(to bottom, #151aed, #fa708b);" src="./components/Logo/logo.svg">
+<img style="padding: 1rem;background-color: #151aed;background-image:linear-gradient(to bottom, #151aed, #fa708b);" src="./components/Logo/logo.svg">
 
 A Next.js showcase app
 
