@@ -50,6 +50,6 @@ All pages could be found under [/pages](/pages).
 
 The REST API could be found under [/pages/api](/pages/api).
 
-### Components & Containers
+### 🚚 Components & Containers
 
 The project tries to divide components into stateless and statefull components. See [this](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) article for more info.
