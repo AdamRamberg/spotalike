@@ -28,25 +28,25 @@ const TextWrapper = styled.div`
 `;
 
 const About = () => {
-  const [iconElement, setIconElement] = useState(null);
-  const iconRef = useCallback(
+  const [moreIconElement, setMoreIconElement] = useState(null);
+  const moreIconRef = useCallback(
     element => {
-      if (element !== null && iconElement !== element) {
-        setIconElement(element);
+      if (element !== null && moreIconElement !== element) {
+        setMoreIconElement(element);
       }
     },
-    [iconElement],
+    [moreIconElement],
   );
 
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
   return (
     <>
-      {iconElement && (
+      {moreIconElement && (
         <Tooltip
           close={() => setIsTooltipOpen(false)}
           isOpen={isTooltipOpen}
-          target={iconElement}
+          target={moreIconElement}
         />
       )}
       <Hero
@@ -56,7 +56,7 @@ const About = () => {
           rightComponent: (
             <>
               <Icon
-                ref={iconRef}
+                ref={moreIconRef}
                 iconKey="more"
                 as="button"
                 onClick={() => setIsTooltipOpen(!isTooltipOpen)}

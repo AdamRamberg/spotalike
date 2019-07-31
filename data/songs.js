@@ -1,3 +1,5 @@
+const stringHash = require('string-hash');
+
 const songs = [
   {
     name: 'Little Lion Man',
@@ -97,4 +99,10 @@ const songs = [
   },
 ];
 
-module.exports = songs;
+const addId = data =>
+  data.map(song => ({
+    ...song,
+    id: stringHash(`${song.name}___${song.artist}`).toString(),
+  }));
+
+module.exports = addId(songs);

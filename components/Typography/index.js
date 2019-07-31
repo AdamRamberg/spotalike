@@ -1,2 +1,2 @@
-export { default as Paragraph } from './paragraph';
-export { default as Heading } from './heading';
+export { default as Paragraph, CenteredParagraph } from './paragraph';
+export { default as Heading, SmallHeading } from './heading';

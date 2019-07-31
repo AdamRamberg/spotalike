@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Logo from '../components/Logo';
 import Hero from '../components/Hero';
 import Icon from '../components/Icon';
-import { Paragraph, Heading } from '../components/Typography';
+import { Heading, CenteredParagraph } from '../components/Typography';
 import List, { ListItem } from '../components/List';
 import fetch from '../utils/fetchWithParams';
 
@@ -20,11 +20,6 @@ const LogoWrapper = styled.div`
 const TextContainer = styled.div`
   background-color: white;
   margin: ${({ theme }) => theme.spacing(7)};
-`;
-
-const CenteredParagraph = styled(Paragraph)`
-  margin: 0;
-  text-align: center;
 `;
 
 const SmallHeading = styled(Heading)`

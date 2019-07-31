@@ -41,11 +41,14 @@ const PropTypes = {
 
 TopRow.propTypes = PropTypes;
 
-const EmptyDiv = <div />;
+const EmptyDiv = styled.div`
+  height: ${({ theme }) => theme.spacing(3)};
+  width: ${({ theme }) => theme.spacing(3)};
+`;
 TopRow.defaultProps = {
-  leftComponent: EmptyDiv,
+  leftComponent: <EmptyDiv />,
   title: '',
-  rightComponent: EmptyDiv,
+  rightComponent: <EmptyDiv />,
 };
 
 export const PropTypesShape = shape(PropTypes);
