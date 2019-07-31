@@ -9,6 +9,7 @@ import List, { ListItem } from '../../components/List';
 import Tooltip from '../../compositions/ShareAndRateTooltip';
 import SpotifyStickyFooter from '../../compositions/SpotifyStickyFooter';
 import fetch from '../../utils/fetchWithParams';
+import { API_URL } from '../../constants';
 
 // eslint-disable-next-line no-console
 const notImplementedHandler = () => console.log('Button not implemented');

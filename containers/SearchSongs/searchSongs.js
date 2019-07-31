@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import TextInput from '../../components/TextInput';
 import SongList from '../../compositions/SongList';
 import fetch from '../../utils/fetchWithParams';
+import { API_URL } from '../../constants';
 
 const StyledTextInput = styled(TextInput)`
   width: 100%;
@@ -25,7 +26,7 @@ const SearchSongs = () => {
   const [debouncedSearchValue] = useDebounce(searchValue, 300);
   useEffect(() => {
     const fetchSongs = async () => {
-      const queriedSongs = await fetch('http://localhost:3000/api/songs', {
+      const queriedSongs = await fetch(`${API_URL}/songs`, {
         maxCount: 10,
         searchString: debouncedSearchValue,
       });

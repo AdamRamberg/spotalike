@@ -8,6 +8,7 @@ import { Heading, CenteredParagraph } from '../components/Typography';
 import SearchSongs from '../containers/SearchSongs';
 import SongList from '../compositions/SongList';
 import fetch from '../utils/fetchWithParams';
+import { API_URL } from '../constants';
 
 const HERO_HEIGHT = '18.8rem';
 
@@ -62,7 +63,7 @@ Home.defaultProps = {
 };
 
 Home.getInitialProps = async () => {
-  const popularSongs = await fetch('http://localhost:3000/api/songs', {
+  const popularSongs = await fetch(`${API_URL}/songs`, {
     maxCount: 10,
     numberOfPlays: true,
   });
