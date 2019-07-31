@@ -1,4 +1,4 @@
-<img style="padding: 1rem;background-color: #151aed;background-image:linear-gradient(to bottom, #151aed, #fa708b);" src="./components/Logo/logo.svg">
+# 🎵 Spotalike
 
 A Next.js showcase app
 
